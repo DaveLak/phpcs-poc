@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<ruleset name="POC">
+    <description>These rules generate different output depending on what they are run against.</description>
+
+    <!-- Start scanning from project root. -->
+    <file>./</file>
+
+    <!-- Exclude the Composer Vendor directory. -->
+    <exclude-pattern>vendor/*</exclude-pattern>
+
+    <!--
+    =======================================
+    Define CLI args PHPCS should run with.
+    =======================================
+    -->
+
+    <!-- Show colors in console. -->
+    <arg value="-colors"/>
+
+    <!--
+     p flag: Show progress of the run.
+     s flag: Show the name of the rule violated in reports.
+    -->
+    <arg value="ps"/>
+
+    <!--
+    ===========================
+    Define rulesets to enforce.
+    ===========================
+    -->
+
+    <!-- Include the WordPress-Extra standard. -->
+    <rule ref="WordPress-Extra">
+        <!--
+        For a list of configurable rules included by WordPress Coding Standards
+        see here: https://git.io/fx0T4
+        -->
+        <!-- Allow spaces instead of tabs. -->
+        <exclude name="Generic.WhiteSpace.DisallowSpaceIndent"/>
+    </rule>
+
+    <rule ref="Generic.Commenting.Todo"/>
+
+    <!-- THIS IS THE RULE THAT IS HAS ISSUES -->
+    <rule ref="WordPress.WhiteSpace.PrecisionAlignment">
+        <properties>
+            <!-- Allow Precision Alignment in HTML and Comments. -->
+            <property name="ignoreAlignmentTokens" type="array" value="T_COMMENT,T_INLINE_HTML"/>
+        </properties>
+    </rule>
+
+</ruleset>

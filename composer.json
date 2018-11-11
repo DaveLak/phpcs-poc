@@ -1,0 +1,33 @@
+{
+    "name": "DaveLak/phpcs-poc",
+    "description": "",
+    "type": "wordpress-theme",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "DaveLak",
+            "email": "gh@themoderndev.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4",
+        "squizlabs/php_codesniffer": "^3.3",
+        "wp-coding-standards/wpcs": "^1.1"
+    },
+    "prefer-stable" : true,
+    "config": {
+        "vendor-dir": "vendor",
+        "preferred-install": "dist",
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "scripts": {
+        "lint": ["phpcs"],
+        "lint:report": [
+            "[ -d ./reports ] || mkdir -p ./reports",
+            "phpcs --report-file=./reports/phpcs_$(date +\"%Y-%m-%d-%H%M%S\").txt"
+        ],
+        "lint:fix": ["phpcbf"]
+    }
+}
