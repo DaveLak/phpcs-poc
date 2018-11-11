@@ -10,7 +10,9 @@ To reproduce the issue:
 1. Run ` ./vendor/bin/phpcs category.php`
 1. Notice PHPCS flags warnings in `category.php` only when run against the project
 
-#### Expected output of ` ./vendor/bin/phpcs`:
+The output will be the following:
+
+#### Output of ` ./vendor/bin/phpcs`:
 
 ```
 FILE: /path/to/phpcs_poc/functions.php
@@ -36,7 +38,7 @@ FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
 ----------------------------------------------------------------------------------------
 ```
 
-#### Expected output of ` ./vendor/bin/phpcs category.php`:
+#### Output of ` ./vendor/bin/phpcs category.php`:
 
 
 ```
@@ -45,7 +47,7 @@ FOUND 0 ERRORS AND 2 WARNINGS AFFECTING 2 LINES
 Time: 132ms; Memory: 8Mb
 ```
 
-#### Expected output of ` ./vendor/bin/phpcs functions.php`:
+#### Output of ` ./vendor/bin/phpcs functions.php`:
 
 ```
 FILE: /path/to/phpcs_poc/functions.php
